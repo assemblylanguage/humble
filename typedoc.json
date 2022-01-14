@@ -1,0 +1,12 @@
+{
+  "entryPoints": [
+    "./src/lib/"
+  ],
+  "exclude": [
+    "./src/**/index.ts",
+    "./src/lib/injectors/injections/*",
+    "./src/lib/modules/**/*",
+    "./src/tests/**/*"
+  ],
+  "out": "./docs/source"
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"http-transport.d.ts","sourceRoot":"","sources":["../../../src/lib/transports/http-transport.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAGH,OAAO,EAAE,gBAAgB,EAAE,MAAM,aAAa,CAAC;AAG/C;;;;;GAKG;AACH,wBAAsB,iBAAiB,CACrC,WAAW,EAAE,MAAM,EACnB,OAAO,EAAE;IAAE,CAAC,MAAM,EAAE,MAAM,GAAG,MAAM,CAAA;CAAE,GACnC,OAAO,CAAC,gBAAgB,CAAC,CAiD5B"}

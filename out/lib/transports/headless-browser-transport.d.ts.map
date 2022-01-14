@@ -1,0 +1,1 @@
+{"version":3,"file":"headless-browser-transport.d.ts","sourceRoot":"","sources":["../../../src/lib/transports/headless-browser-transport.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAEH,OAAO,EAAE,OAAO,EAAsB,MAAM,gBAAgB,CAAC;AAC7D,OAAO,EAAE,gBAAgB,EAAE,MAAM,aAAa,CAAC;AAE/C,wBAAsB,4BAA4B,CAChD,OAAO,EAAE,OAAO,EAChB,WAAW,EAAE,MAAM,GACjB,OAAO,CAAC,gBAAgB,CAAC,CAe5B"}

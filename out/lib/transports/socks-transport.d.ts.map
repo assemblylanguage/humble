@@ -1,0 +1,1 @@
+{"version":3,"file":"socks-transport.d.ts","sourceRoot":"","sources":["../../../src/lib/transports/socks-transport.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAIH,OAAO,EAAE,gBAAgB,EAAE,MAAM,aAAa,CAAC;AAK/C;;;;;;;GAOG;AACH,wBAAsB,kBAAkB,CACtC,WAAW,EAAE,MAAM,EACnB,OAAO,EAAE;IAAE,CAAC,MAAM,EAAE,MAAM,GAAG,MAAM,CAAA;CAAE,EACrC,qBAAqB,EAAE,MAAM,GAC3B,OAAO,CAAC,gBAAgB,CAAC,CAuD5B"}
