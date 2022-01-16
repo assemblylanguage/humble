@@ -312,6 +312,51 @@ If the build was successful:
 * The library will be built at `./out`
 * The docs will be built at `./docs`
 
+### API
+
+Humble can be used programmatically through JavaScript/TypeScript. See the docs for all options that can be used.
+
+```javascript
+/**
+ * Basic programmatic usage.
+ */
+import { Humble } from 'TODO';
+
+(async () => {
+  // Creating a Humble context.
+  const humble = new Humble({
+    url: 'https://wikipedia.org/wiki/Unix',
+    out: './archive.html',
+  });
+
+  // Archiving the page. The archive will be written to `./archive.html`
+  await humble.archive();
+})();
+```
+
+Plugins are callbacks that pass in the `Humble` object context into the callback, and modify state in the plugin. See the Humble options docs for all stages plugins can be registered in.
+
+```javascript
+/**
+ * Basic plugin example.
+ */
+import { Humble } from 'TODO';
+
+(async () => {
+  const humble = new Humble({
+    url: 'https://wikipedia.org/wiki/Unix',
+    // A plugin that will run after the final HTML page is bundled and created.
+    afterFinalHtmlCreation: [
+      async (humbleContext) => {
+        humbleContext.html = '<h1>HTML modified by the plugin in the Humble context.</h1>';
+      },
+    ],
+  });
+
+  await humble.archive();
+})();
+```
+
 ### License
 
 (C) AssemblyLanguage 2022, Licensed under the GNU AGPLv3.
