@@ -1,5 +1,5 @@
 {
-  "name": "assemblylanguage",
+  "name": "@assemblylanguage/humble",
   "version": "2.0.0",
   "description": "Bundle web pages for offline viewing",
   "author": "assemblylanguage",
