@@ -320,7 +320,7 @@ Humble can be used programmatically through JavaScript/TypeScript. See the docs 
 /**
  * Basic programmatic usage.
  */
-import { Humble } from 'TODO';
+import { Humble } from '@assemblylanguage/humble';
 
 (async () => {
   // Creating a Humble context.
@@ -340,7 +340,7 @@ Plugins are callbacks that pass in the `Humble` object context into the callback
 /**
  * Basic plugin example.
  */
-import { Humble } from 'TODO';
+import { Humble } from '@assemblylanguage/humble';
 
 (async () => {
   const humble = new Humble({
