@@ -551,6 +551,7 @@ if (require.main === module) {
 
     if (noArgumentsProvides === true) {
       program.help();
+      process.exit();
     }
 
     // If the `-c` or `--check-dependencies` argument is provided, check the
