@@ -22,6 +22,10 @@
     "all": "npx tsc && npx ava && npx webpack && npx typedoc"
   },
   "dependencies": {
+    "@assemblylanguage/class-id-minifier": "^1.0.0",
+    "@assemblylanguage/content-security-policy": "^1.0.0",
+    "@assemblylanguage/grayscale-css": "^1.0.1",
+    "@assemblylanguage/source-code-minifier": "^1.0.0",
     "@babel/core": "7.14.0",
     "@mozilla/readability": "0.4.1",
     "axios": "0.21.1",

@@ -6,6 +6,10 @@
 
 /* eslint-disable no-param-reassign */
 
+import * as classIdMinifier from '@assemblylanguage/class-id-minifier';
+import * as sourceCodeMinifier from '@assemblylanguage/source-code-minifier';
+import * as contentSecurityPolicy from '@assemblylanguage/content-security-policy';
+import * as grayscaleCss from '@assemblylanguage/grayscale-css';
 import { Humble } from './humble';
 import { HumblePlugin } from './options/humble-options';
 import { ResourceCache, ResourceType } from './resource';
@@ -62,17 +66,6 @@ async function removeStylesPlugin(
 }
 
 /**
- * A plugin wrapper for the `addStyleCSP` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function addStyleCSPPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.addStyleCSP(humble.document);
-}
-
-/**
  * A plugin wrapper for the `removeScriptTags` function.
  *
  * @param humble a Humble object that will be modified in place.
@@ -125,17 +118,6 @@ async function removeScriptsPlugin(
   humble: Humble,
 ) : Promise<void> {
   await documentModifiers.removeScripts(humble.document);
-}
-
-/**
- * A plugin wrapper for the `addScriptCSP` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function addScriptCSPPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.addScriptCSP(humble.document);
 }
 
 /**
@@ -205,17 +187,6 @@ async function removeImagesPlugin(
 }
 
 /**
- * A plugin wrapper for the `addImageCSP` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function addImageCSPPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.addImageCSP(humble.document);
-}
-
-/**
  * A plugin wrapper for the `removeFrames` function.
  *
  * @param humble a Humble object that will be modified in place.
@@ -224,17 +195,6 @@ async function removeFramesPlugin(
   humble: Humble,
 ) : Promise<void> {
   await documentModifiers.removeFrames(humble.document);
-}
-
-/**
- * A plugin wrapper for the `addFrameCSP` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function addFrameCSPPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.addFrameCSP(humble.document);
 }
 
 /**
@@ -260,17 +220,6 @@ async function removeVideosPlugin(
 }
 
 /**
- * A plugin wrapper for the `addVideoCSP` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function addVideoCSPPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.addVideoCSP(humble.document);
-}
-
-/**
  * A plugin wrapper for the `removeAudioSrcs` function.
  *
  * @param humble a Humble object that will be modified in place.
@@ -293,17 +242,6 @@ async function removeAudioPlugin(
 }
 
 /**
- * A plugin wrapper for the `addAudioCSP` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function addAudioCSPPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.addAudioCSP(humble.document);
-}
-
-/**
  * A plugin wrapper for the `removeFonts` function.
  *
  * @param humble a Humble object that will be modified in place.
@@ -312,17 +250,6 @@ async function removeFontsPlugin(
   humble: Humble,
 ) : Promise<void> {
   await documentModifiers.removeFonts(humble.document);
-}
-
-/**
- * A plugin wrapper for the `addFontCSP` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function addFontCSPPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.addFontCSP(humble.document);
 }
 
 /**
@@ -610,59 +537,6 @@ async function removeCustomTagsByCssSelectorPlugin(
 }
 
 /**
- * A plugin wrapper for the `minifyHtml` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function minifyHtmlPlugin(
-  humble: Humble,
-) : Promise<void> {
-  humble.html = await documentModifiers.minifyHtml(
-    humble.document.documentElement.outerHTML,
-    humble.options.minifyHtmlOptions,
-  );
-}
-
-/**
- * A plugin wrapper for the `minifyCss` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function minifyCssPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.minifyCss(
-    humble.document,
-    humble.options.minifyCssOptions,
-  );
-}
-
-/**
- * A plugin wrapper for the `minifyJs` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function minifyJsPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.minifyJs(
-    humble.document,
-    humble.options.minifyJsOptions,
-  );
-}
-
-/**
- * A plugin wrapper for the `minifyGenericTagNames` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function minifyGenericTagNamesPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.minifyGenericTagNames(humble.document);
-}
-
-/**
  * A plugin wrapper for the `removeUnusedCss` function.
  *
  * @param humble a Humble object that will be modified in place.
@@ -683,41 +557,6 @@ async function collapseEmptyAttributesPlugin(
 ) : Promise<void> {
   await documentModifiers.collapseEmptyAttributes(
     humble.document.documentElement.outerHTML,
-  );
-}
-
-/**
- * A plugin wrapper for the `minifyClassNames` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function minifyClassNamesPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.minifyClassNames(humble.document);
-}
-
-/**
- * A plugin wrapper for the `minifyIDs` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function minifyIDsPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.minifyIDs(humble.document);
-}
-
-/**
- * A plugin wrapper for the `minifyClassNamesAndIDsToAttributes` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function minifyClassNamesAndIDsToAttributesPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.minifyClassNamesAndIDsToAttributes(
-    humble.document,
   );
 }
 
@@ -879,19 +718,6 @@ async function removeMetadataFromResourceCachePlugin(
 }
 
 /**
- * A plugin wrapper for the `grayscaleCss` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function grayscaleCssPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.grayscaleCss(
-    humble.document,
-  );
-}
-
-/**
  * A plugin wrapper for the `grayscaleImages` function.
  *
  * @param humble a Humble object that will be modified in place.
@@ -934,7 +760,7 @@ async function grayscaleVideosPlugin(
 async function grayscalePlugin(
   humble: Humble,
 ) : Promise<void> {
-  await grayscaleCssPlugin(humble);
+  await grayscaleCss.plugins.grayscaleCssPlugin(humble);
   await grayscaleImagesPlugin(humble);
   await grayscaleVideosPlugin(humble);
 }
@@ -1401,7 +1227,7 @@ export function buildFinalInlineModificationsPluginPipeline(
 
   // Minifying tag names of generic elements.
   if (humble.options.minifyGenericTagNames) {
-    plugins.push(minifyGenericTagNamesPlugin);
+    plugins.push(sourceCodeMinifier.plugins.minifyGenericTagNamesPlugin);
   }
 
   // Injects a custom CSS style sheet into the page.
@@ -1461,22 +1287,24 @@ export function buildFinalInlineModificationsPluginPipeline(
 
   // Minifying CSS class names.
   if (humble.options.minifyClassNames) {
-    plugins.push(minifyClassNamesPlugin);
+    plugins.push(classIdMinifier.plugins.minifyClassNamesPlugin);
   }
 
   // Minifying CSS IDs.
   if (humble.options.minifyIDs) {
-    plugins.push(minifyIDsPlugin);
+    plugins.push(classIdMinifier.plugins.minifyIDsPlugin);
   }
 
   // Minifying CSS class names and IDs to attributes.
   if (humble.options.minifyClassNamesAndIDsToAttributes) {
-    plugins.push(minifyClassNamesAndIDsToAttributesPlugin);
+    plugins.push(
+      classIdMinifier.plugins.minifyClassNamesAndIDsToAttributesPlugin,
+    );
   }
 
   // Minifying CSS code.
   if (humble.options.minifyCss) {
-    plugins.push(minifyCssPlugin);
+    plugins.push(sourceCodeMinifier.plugins.minifyCssPlugin);
   }
 
   // Beautifying CSS code.
@@ -1491,7 +1319,7 @@ export function buildFinalInlineModificationsPluginPipeline(
 
   // Minifying JS code.
   if (humble.options.minifyJs) {
-    plugins.push(minifyJsPlugin);
+    plugins.push(sourceCodeMinifier.plugins.minifyJsPlugin);
   }
 
   // Minifying JS code.
@@ -1516,31 +1344,31 @@ export function buildFinalDocumentCreationPluginPipeline(
   // Adding Content-Security-Policies to the page to block the loading or
   // executing of page resources.
   if (humble.options.addStyleCSP) {
-    plugins.push(addStyleCSPPlugin);
+    plugins.push(contentSecurityPolicy.plugins.addStyleCSPPlugin);
   }
 
   if (humble.options.addScriptCSP) {
-    plugins.push(addScriptCSPPlugin);
+    plugins.push(contentSecurityPolicy.plugins.addScriptCSPPlugin);
   }
 
   if (humble.options.addImageCSP) {
-    plugins.push(addImageCSPPlugin);
+    plugins.push(contentSecurityPolicy.plugins.addImageCSPPlugin);
   }
 
   if (humble.options.addFrameCSP) {
-    plugins.push(addFrameCSPPlugin);
+    plugins.push(contentSecurityPolicy.plugins.addFrameCSPPlugin);
   }
 
   if (humble.options.addVideoCSP) {
-    plugins.push(addVideoCSPPlugin);
+    plugins.push(contentSecurityPolicy.plugins.addVideoCSPPlugin);
   }
 
   if (humble.options.addAudioCSP) {
-    plugins.push(addAudioCSPPlugin);
+    plugins.push(contentSecurityPolicy.plugins.addAudioCSPPlugin);
   }
 
   if (humble.options.addFontCSP) {
-    plugins.push(addFontCSPPlugin);
+    plugins.push(contentSecurityPolicy.plugins.addFontCSPPlugin);
   }
 
   // Injecting a compiled page into the document.
@@ -1564,7 +1392,7 @@ export function buildFinalHtmlCreationPluginPipeline(
 
   // Minifying the page HTML.
   if (humble.options.minifyHtml) {
-    plugins.push(minifyHtmlPlugin);
+    plugins.push(sourceCodeMinifier.plugins.minifyHtmlPlugin);
   }
 
   // Beautifying the page HTML.
