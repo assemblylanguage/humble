@@ -3,18 +3,6 @@
  */
 
 import {
-  minifyClassNames,
-  minifyIDs,
-  minifyClassNamesAndIDsToAttributes,
-} from './minifiers/class-id-minifier';
-import {
-  collapseEmptyAttributes,
-  minifyHtml,
-  minifyCss,
-  minifyJs,
-  minifyGenericTagNames,
-} from './minifiers/source-code-minifiers';
-import {
   transpileEs6ToEs5,
 } from './modifiers/source-code-transpilers';
 import {
@@ -22,18 +10,6 @@ import {
   beautifyCss,
   beautifyJs,
 } from './modifiers/source-code-beautifiers';
-import {
-  addStyleCSP,
-  addScriptCSP,
-  addImageCSP,
-  addFrameCSP,
-  addVideoCSP,
-  addAudioCSP,
-  addFontCSP,
-} from './modifiers/content-security-policy-modifier';
-import {
-  grayscaleCss,
-} from './modifiers/css-grayscaler';
 import {
   readabilityMode,
 } from './modifiers/readability';
@@ -94,26 +70,10 @@ import {
 } from './removers/unused-css-remover';
 
 export {
-  minifyClassNames,
-  minifyIDs,
-  minifyClassNamesAndIDsToAttributes,
-  collapseEmptyAttributes,
-  minifyHtml,
-  minifyCss,
-  minifyJs,
-  minifyGenericTagNames,
   transpileEs6ToEs5,
   beautifyHtml,
   beautifyCss,
   beautifyJs,
-  addStyleCSP,
-  addScriptCSP,
-  addImageCSP,
-  addFrameCSP,
-  addVideoCSP,
-  addAudioCSP,
-  addFontCSP,
-  grayscaleCss,
   readabilityMode,
   purifyHtml,
   removeElementsByTagName,
