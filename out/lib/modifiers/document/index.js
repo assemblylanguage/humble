@@ -3,34 +3,14 @@
  * Importing and re-exporting the document modifier code.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.removeNonConditionalComments = exports.removeConditionalComments = exports.removeCanvas = exports.removeFavicons = exports.removeCursors = exports.removeFonts = exports.removeAudio = exports.removeAudioSrcs = exports.removeVideos = exports.removeVideoSrcs = exports.removeFrames = exports.removeImages = exports.removeCssImages = exports.removeImageAttributes = exports.removeImageAlts = exports.removeImageSrcsets = exports.removeImageSrcs = exports.removeScripts = exports.removeHrefScripts = exports.removeInlineScripts = exports.removeNoscriptTags = exports.removeScriptTags = exports.removeStyles = exports.removeInlineStyles = exports.removeAlternativeStylesTags = exports.removeStylesTags = exports.removeElementsByCssSelector = exports.removeElementsByTagName = exports.purifyHtml = exports.readabilityMode = exports.grayscaleCss = exports.addFontCSP = exports.addAudioCSP = exports.addVideoCSP = exports.addFrameCSP = exports.addImageCSP = exports.addScriptCSP = exports.addStyleCSP = exports.beautifyJs = exports.beautifyCss = exports.beautifyHtml = exports.transpileEs6ToEs5 = exports.minifyGenericTagNames = exports.minifyJs = exports.minifyCss = exports.minifyHtml = exports.collapseEmptyAttributes = exports.minifyClassNamesAndIDsToAttributes = exports.minifyIDs = exports.minifyClassNames = void 0;
-exports.removeUnusedCss = exports.removeHiddenElementsAndCss = exports.removeCustomTagsByCssSelector = exports.removeCustomTagsByName = exports.removeEmptyNonDisplayElements = exports.removeIntegrityCheckAttributes = exports.removeDataAttributes = exports.removeAriaAttributes = exports.removeDefaultAttributes = exports.removeAnchorHrefs = exports.removeNonInlineAnchorHrefs = exports.removeMetaRefreshTag = exports.removeNonDisplayLinkTags = exports.removeNonDisplayMetaTags = exports.removeFormTagsOnly = exports.removeFormAttributes = exports.removeForms = exports.removeComments = void 0;
-const class_id_minifier_1 = require("./minifiers/class-id-minifier");
-Object.defineProperty(exports, "minifyClassNames", { enumerable: true, get: function () { return class_id_minifier_1.minifyClassNames; } });
-Object.defineProperty(exports, "minifyIDs", { enumerable: true, get: function () { return class_id_minifier_1.minifyIDs; } });
-Object.defineProperty(exports, "minifyClassNamesAndIDsToAttributes", { enumerable: true, get: function () { return class_id_minifier_1.minifyClassNamesAndIDsToAttributes; } });
-const source_code_minifiers_1 = require("./minifiers/source-code-minifiers");
-Object.defineProperty(exports, "collapseEmptyAttributes", { enumerable: true, get: function () { return source_code_minifiers_1.collapseEmptyAttributes; } });
-Object.defineProperty(exports, "minifyHtml", { enumerable: true, get: function () { return source_code_minifiers_1.minifyHtml; } });
-Object.defineProperty(exports, "minifyCss", { enumerable: true, get: function () { return source_code_minifiers_1.minifyCss; } });
-Object.defineProperty(exports, "minifyJs", { enumerable: true, get: function () { return source_code_minifiers_1.minifyJs; } });
-Object.defineProperty(exports, "minifyGenericTagNames", { enumerable: true, get: function () { return source_code_minifiers_1.minifyGenericTagNames; } });
+exports.removeCustomTagsByCssSelector = exports.removeCustomTagsByName = exports.removeEmptyNonDisplayElements = exports.removeIntegrityCheckAttributes = exports.removeDataAttributes = exports.removeAriaAttributes = exports.removeDefaultAttributes = exports.removeAnchorHrefs = exports.removeNonInlineAnchorHrefs = exports.removeMetaRefreshTag = exports.removeNonDisplayLinkTags = exports.removeNonDisplayMetaTags = exports.removeFormTagsOnly = exports.removeFormAttributes = exports.removeForms = exports.removeComments = exports.removeNonConditionalComments = exports.removeConditionalComments = exports.removeCanvas = exports.removeFavicons = exports.removeCursors = exports.removeFonts = exports.removeAudio = exports.removeAudioSrcs = exports.removeVideos = exports.removeVideoSrcs = exports.removeFrames = exports.removeImages = exports.removeCssImages = exports.removeImageAttributes = exports.removeImageAlts = exports.removeImageSrcsets = exports.removeImageSrcs = exports.removeScripts = exports.removeHrefScripts = exports.removeInlineScripts = exports.removeNoscriptTags = exports.removeScriptTags = exports.removeStyles = exports.removeInlineStyles = exports.removeAlternativeStylesTags = exports.removeStylesTags = exports.removeElementsByCssSelector = exports.removeElementsByTagName = exports.purifyHtml = exports.readabilityMode = exports.beautifyJs = exports.beautifyCss = exports.beautifyHtml = exports.transpileEs6ToEs5 = void 0;
+exports.removeUnusedCss = exports.removeHiddenElementsAndCss = void 0;
 const source_code_transpilers_1 = require("./modifiers/source-code-transpilers");
 Object.defineProperty(exports, "transpileEs6ToEs5", { enumerable: true, get: function () { return source_code_transpilers_1.transpileEs6ToEs5; } });
 const source_code_beautifiers_1 = require("./modifiers/source-code-beautifiers");
 Object.defineProperty(exports, "beautifyHtml", { enumerable: true, get: function () { return source_code_beautifiers_1.beautifyHtml; } });
 Object.defineProperty(exports, "beautifyCss", { enumerable: true, get: function () { return source_code_beautifiers_1.beautifyCss; } });
 Object.defineProperty(exports, "beautifyJs", { enumerable: true, get: function () { return source_code_beautifiers_1.beautifyJs; } });
-const content_security_policy_modifier_1 = require("./modifiers/content-security-policy-modifier");
-Object.defineProperty(exports, "addStyleCSP", { enumerable: true, get: function () { return content_security_policy_modifier_1.addStyleCSP; } });
-Object.defineProperty(exports, "addScriptCSP", { enumerable: true, get: function () { return content_security_policy_modifier_1.addScriptCSP; } });
-Object.defineProperty(exports, "addImageCSP", { enumerable: true, get: function () { return content_security_policy_modifier_1.addImageCSP; } });
-Object.defineProperty(exports, "addFrameCSP", { enumerable: true, get: function () { return content_security_policy_modifier_1.addFrameCSP; } });
-Object.defineProperty(exports, "addVideoCSP", { enumerable: true, get: function () { return content_security_policy_modifier_1.addVideoCSP; } });
-Object.defineProperty(exports, "addAudioCSP", { enumerable: true, get: function () { return content_security_policy_modifier_1.addAudioCSP; } });
-Object.defineProperty(exports, "addFontCSP", { enumerable: true, get: function () { return content_security_policy_modifier_1.addFontCSP; } });
-const css_grayscaler_1 = require("./modifiers/css-grayscaler");
-Object.defineProperty(exports, "grayscaleCss", { enumerable: true, get: function () { return css_grayscaler_1.grayscaleCss; } });
 const readability_1 = require("./modifiers/readability");
 Object.defineProperty(exports, "readabilityMode", { enumerable: true, get: function () { return readability_1.readabilityMode; } });
 const dom_purify_1 = require("./modifiers/dom-purify");

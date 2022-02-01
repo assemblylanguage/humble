@@ -1196,7 +1196,7 @@ export function buildResourceModificationsPluginPipeline(
 
   // Grayscaling CSS, images, and videos.
   if (humble.options.grayscaleCss) {
-    plugins.push(grayscaleCssPlugin);
+    plugins.push(grayscaleCss.plugins.grayscaleCssPlugin);
   }
 
   if (humble.options.grayscaleImages) {

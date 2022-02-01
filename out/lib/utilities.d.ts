@@ -4,6 +4,13 @@
 /// <reference types="node" />
 import { AxiosResponse } from 'axios';
 /**
+ * Checks if the given URL includes a protocol.
+ *
+ * @param url the given URL.
+ * @returns true if the URL has a protocol, false otherwise.
+ */
+export declare function hasProtocol(url: string): boolean;
+/**
  * Resolves a URL to an absolute URL given the base URL and protocol.
  *
  * @param url the URL that will be resolved into an absolute URL.
@@ -17,13 +24,6 @@ import { AxiosResponse } from 'axios';
  * @returns the resolved absolute URL.
  */
 export declare function resolveAbsoluteUrl(url: string, protocol: string, baseUrl: string): string;
-/**
- * Checks if the given URL includes a protocol.
- *
- * @param url the given URL.
- * @returns true if the URL has a protocol, false otherwise.
- */
-export declare function hasProtocol(url: string): boolean;
 /**
  * Gets the protocol from a given URL. If no protocol is found, assumes the
  * protocol is the `file:` protocol and returns it.

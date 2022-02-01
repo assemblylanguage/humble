@@ -21,7 +21,7 @@ if (require.main === module) {
         // Creating the CLI program.
         const program = new commander_1.Command();
         // Setting the version number.
-        program.version('2.0.0', '-v, --version');
+        program.version('2.0.1', '-v, --version');
         // Adding all of the arguments to the CLI.
         program
             .arguments('<url>')
@@ -217,6 +217,7 @@ if (require.main === module) {
         const noArgumentsProvides = (program.args.length === 0);
         if (noArgumentsProvides === true) {
             program.help();
+            process.exit();
         }
         // If the `-c` or `--check-dependencies` argument is provided, check the
         // dependencies and stopping execution of the program.

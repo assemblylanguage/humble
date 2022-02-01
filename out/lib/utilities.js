@@ -12,7 +12,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createFileNameFromTitle = exports.createPathSafeFileName = exports.decompressResponse = exports.getDoctype = exports.parseSrcsetUrls = exports.getExtensionFromMimeType = exports.determineMimeType = exports.getBaseUrl = exports.getProtocolFromUrl = exports.hasProtocol = exports.resolveAbsoluteUrl = void 0;
+exports.createFileNameFromTitle = exports.createPathSafeFileName = exports.decompressResponse = exports.getDoctype = exports.parseSrcsetUrls = exports.getExtensionFromMimeType = exports.determineMimeType = exports.getBaseUrl = exports.getProtocolFromUrl = exports.resolveAbsoluteUrl = exports.hasProtocol = void 0;
 /* eslint-disable no-multi-spaces */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable prefer-template */
@@ -21,6 +21,18 @@ const path = require("path");
 const FileType = require("file-type");
 const decompress = require("brotli/decompress");
 const voca = require("voca");
+/**
+ * Checks if the given URL includes a protocol.
+ *
+ * @param url the given URL.
+ * @returns true if the URL has a protocol, false otherwise.
+ */
+function hasProtocol(url) {
+    // Creating a regex to check if a string has a protocol at the start of it.
+    const protocolRegex = /^([a-zA-Z0-9]*?[:][/]{2})/i;
+    return protocolRegex.test(url);
+}
+exports.hasProtocol = hasProtocol;
 /**
  * Resolves a URL to an absolute URL given the base URL and protocol.
  *
@@ -45,6 +57,9 @@ function resolveAbsoluteUrl(url, protocol, baseUrl) {
         }
         case 'http:':
         case 'https:': {
+            if (hasProtocol(url)) {
+                return url;
+            }
             return new URL(url, baseUrl).href;
         }
         case 'data:': {
@@ -56,18 +71,6 @@ function resolveAbsoluteUrl(url, protocol, baseUrl) {
     }
 }
 exports.resolveAbsoluteUrl = resolveAbsoluteUrl;
-/**
- * Checks if the given URL includes a protocol.
- *
- * @param url the given URL.
- * @returns true if the URL has a protocol, false otherwise.
- */
-function hasProtocol(url) {
-    // Creating a regex to check if a string has a protocol at the start of it.
-    const protocolRegex = /^([a-zA-Z0-9]*?[:][/]{2})/i;
-    return protocolRegex.test(url);
-}
-exports.hasProtocol = hasProtocol;
 /**
  * Gets the protocol from a given URL. If no protocol is found, assumes the
  * protocol is the `file:` protocol and returns it.
