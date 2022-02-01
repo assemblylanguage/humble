@@ -499,16 +499,6 @@ function removeUnusedCssPlugin(humble) {
     });
 }
 /**
- * A plugin wrapper for the `collapseEmptyAttributes` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-function collapseEmptyAttributesPlugin(humble) {
-    return __awaiter(this, void 0, void 0, function* () {
-        yield documentModifiers.collapseEmptyAttributes(humble.document.documentElement.outerHTML);
-    });
-}
-/**
  * A plugin wrapper for the `beautifyHtml` function.
  *
  * @param humble a Humble object that will be modified in place.
@@ -987,7 +977,7 @@ function buildResourceModificationsPluginPipeline(humble) {
     }
     // Grayscaling CSS, images, and videos.
     if (humble.options.grayscaleCss) {
-        plugins.push(grayscaleCssPlugin);
+        plugins.push(grayscaleCss.plugins.grayscaleCssPlugin);
     }
     if (humble.options.grayscaleImages) {
         plugins.push(grayscaleImagesPlugin);
@@ -1055,7 +1045,7 @@ function buildFinalInlineModificationsPluginPipeline(humble) {
     }
     // Collapse empty HTML attributes.
     if (humble.options.collapseEmptyAttributes) {
-        plugins.push(collapseEmptyAttributesPlugin);
+        plugins.push(sourceCodeMinifier.plugins.collapseEmptyAttributesPlugin);
     }
     // Minifying CSS class names.
     if (humble.options.minifyClassNames) {
