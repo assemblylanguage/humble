@@ -548,19 +548,6 @@ async function removeUnusedCssPlugin(
 }
 
 /**
- * A plugin wrapper for the `collapseEmptyAttributes` function.
- *
- * @param humble a Humble object that will be modified in place.
- */
-async function collapseEmptyAttributesPlugin(
-  humble: Humble,
-) : Promise<void> {
-  await documentModifiers.collapseEmptyAttributes(
-    humble.document.documentElement.outerHTML,
-  );
-}
-
-/**
  * A plugin wrapper for the `beautifyHtml` function.
  *
  * @param humble a Humble object that will be modified in place.
@@ -1282,7 +1269,7 @@ export function buildFinalInlineModificationsPluginPipeline(
 
   // Collapse empty HTML attributes.
   if (humble.options.collapseEmptyAttributes) {
-    plugins.push(collapseEmptyAttributesPlugin);
+    plugins.push(sourceCodeMinifier.plugins.collapseEmptyAttributesPlugin);
   }
 
   // Minifying CSS class names.
