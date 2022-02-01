@@ -15,6 +15,21 @@ import { FileTypeResult } from 'file-type';
 import { AxiosResponse } from 'axios';
 
 /**
+ * Checks if the given URL includes a protocol.
+ *
+ * @param url the given URL.
+ * @returns true if the URL has a protocol, false otherwise.
+ */
+export function hasProtocol(
+  url: string,
+) : boolean {
+  // Creating a regex to check if a string has a protocol at the start of it.
+  const protocolRegex: RegExp = /^([a-zA-Z0-9]*?[:][/]{2})/i;
+
+  return protocolRegex.test(url);
+}
+
+/**
  * Resolves a URL to an absolute URL given the base URL and protocol.
  *
  * @param url the URL that will be resolved into an absolute URL.
@@ -44,6 +59,10 @@ export function resolveAbsoluteUrl(
 
     case 'http:':
     case 'https:': {
+      if (hasProtocol(url)) {
+        return url;
+      }
+
       return new URL(url, baseUrl).href;
     }
 
@@ -55,21 +74,6 @@ export function resolveAbsoluteUrl(
       return null;
     }
   }
-}
-
-/**
- * Checks if the given URL includes a protocol.
- *
- * @param url the given URL.
- * @returns true if the URL has a protocol, false otherwise.
- */
-export function hasProtocol(
-  url: string,
-) : boolean {
-  // Creating a regex to check if a string has a protocol at the start of it.
-  const protocolRegex: RegExp = /^([a-zA-Z0-9]*?[:][/]{2})/i;
-
-  return protocolRegex.test(url);
 }
 
 /**
